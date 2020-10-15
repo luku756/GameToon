@@ -1,0 +1,37 @@
+sprite
+usesprite
+spr_goumba
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_monster
+event
+5
+object_creates
+4
+sprite_run spr_goumba 0 5 10
+setTimer 91 40
+setXSpeed 0 5
+setYSpeed 0 2
+timer 91
+2
+setTimer 92 60
+setXSpeed 1 -5
+timer 92
+2
+setTimer 91 60
+setXSpeed 1 5
+collision obj_foot
+3
+moveObject 0 0 5
+setSpeed 1 0 5
+changeObject obj_monsterdie
+always
+2
+check_outRoom
+changeObject obj_monsterdie

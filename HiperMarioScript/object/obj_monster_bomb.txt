@@ -1,0 +1,32 @@
+sprite
+usesprite
+spr_goumba_bomb
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_monster
+event
+4
+object_creates
+4
+sprite_run spr_goumba_bomb 0 5 10
+setTimer 91 40
+setXSpeed 0 5
+setYSpeed 0 2
+timer 91
+2
+setTimer 92 60
+setXSpeed 1 -5
+timer 92
+2
+setTimer 91 60
+setXSpeed 1 5
+collision obj_foot
+2
+changeAnotherObject obj_player obj_playerdie
+draw_sprite 0 -96 -96 spr_boom 0 20 10

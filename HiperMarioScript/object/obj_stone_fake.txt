@@ -1,0 +1,13 @@
+sprite
+usesprite
+spr_stone
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+0

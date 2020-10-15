@@ -1,0 +1,7 @@
+size
+45
+40
+image
+blueBack.png
+45
+40

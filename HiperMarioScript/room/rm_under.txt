@@ -1,0 +1,182 @@
+size
+600
+600
+view
+tracking
+obj_player
+viewsize
+600
+600
+viewcoordinate
+0
+0
+background
+1
+bg_under scale
+object
+165
+obj_niddle 50 475
+obj_niddle 100 475
+obj_niddle 150 475
+obj_niddle 75 475
+obj_niddle 125 475
+obj_niddle 175 475
+obj_coin 300 200
+obj_coin 350 200
+obj_coin 400 200
+obj_coin 450 200
+obj_coin 300 250
+obj_coin 350 250
+obj_coin 400 250
+obj_coin 500 250
+obj_coin 450 250
+obj_coin 500 200
+obj_coin 300 300
+obj_coin 350 300
+obj_coin 400 300
+obj_coin 450 300
+obj_coin 500 300
+obj_coin 50 400
+obj_coin 100 400
+obj_coin 150 400
+obj_coin 50 350
+obj_coin 50 300
+obj_coin 50 250
+obj_coin 100 250
+obj_coin 100 300
+obj_coin 150 250
+obj_coin 150 300
+obj_coin 200 250
+obj_coin 250 250
+obj_coin 250 300
+obj_coin 200 300
+obj_coin 150 350
+obj_coin 100 350
+obj_coin 50 450
+obj_coin 100 450
+obj_coin 150 450
+obj_coin 250 200
+obj_coin 200 200
+obj_coin 150 200
+obj_coin 100 200
+obj_coin 50 200
+obj_block_under 0 100
+obj_block_under 0 150
+obj_block_under 0 200
+obj_block_under 0 300
+obj_block_under 0 250
+obj_block_under 0 350
+obj_block_under 0 400
+obj_block_under 0 450
+obj_block_under 0 50
+obj_block_under 0 0
+obj_block_under 200 0
+obj_block_under 250 0
+obj_block_under 300 0
+obj_block_under 350 0
+obj_block_under 400 0
+obj_block_under 200 450
+obj_block_under 250 450
+obj_block_under 300 450
+obj_block_under 350 450
+obj_block_under 400 450
+obj_block_under 450 450
+obj_block_under 500 450
+obj_block_under 500 400
+obj_block_under 450 400
+obj_block_under 400 400
+obj_block_under 350 400
+obj_block_under 300 400
+obj_block_under 300 400
+obj_block_under 200 400
+obj_block_under 250 400
+obj_block_under 500 350
+obj_block_under 450 350
+obj_block_under 400 350
+obj_block_under 350 350
+obj_block_under 300 350
+obj_block_under 250 350
+obj_block_under 200 350
+obj_block_under 450 0
+obj_block_under 500 0
+obj_block_under 550 350
+obj_block_under 550 400
+obj_block_under 550 450
+obj_block_under 550 0
+obj_coin 200 150
+obj_coin 200 100
+obj_coin 200 50
+obj_coin 250 50
+obj_coin 250 100
+obj_coin 250 150
+obj_coin 150 150
+obj_coin 150 150
+obj_coin 150 50
+obj_coin 150 100
+obj_coin 300 50
+obj_coin 300 100
+obj_coin 300 150
+obj_coin 350 50
+obj_coin 350 100
+obj_coin 350 150
+obj_coin 400 50
+obj_coin 400 100
+obj_coin 400 150
+obj_coin 450 50
+obj_coin 450 100
+obj_coin 450 150
+obj_coin 500 50
+obj_coin 500 100
+obj_coin 500 150
+obj_coin 550 50
+obj_coin 550 100
+obj_coin 550 150
+obj_coin 550 200
+obj_coin 550 250
+obj_coin 550 300
+obj_block_under 150 0
+obj_floor_under 0 500
+obj_floor_under 50 500
+obj_floor_under 100 500
+obj_floor_under 150 500
+obj_floor_under 200 500
+obj_floor_under 250 500
+obj_floor_under 300 500
+obj_floor_under 400 500
+obj_floor_under 350 500
+obj_floor_under 450 500
+obj_floor_under 500 500
+obj_floor_under 550 500
+obj_floor_under 550 600
+obj_floor_under 550 550
+obj_floor_under 500 550
+obj_floor_under 450 550
+obj_floor_under 400 550
+obj_floor_under 350 550
+obj_floor_under 300 550
+obj_floor_under 250 550
+obj_floor_under 200 550
+obj_floor_under 150 550
+obj_floor_under 100 550
+obj_floor_under 100 550
+obj_floor_under 0 550
+obj_floor_under 50 550
+obj_niddle 200 325
+obj_niddle 225 325
+obj_niddle 250 325
+obj_niddle 275 325
+obj_niddle 300 325
+obj_niddle 325 325
+obj_niddle 350 325
+obj_niddle 375 325
+obj_niddle 400 325
+obj_niddle 425 325
+obj_niddle 450 325
+obj_niddle 475 325
+obj_niddle 500 325
+obj_niddle 525 325
+obj_niddle 550 325
+obj_niddle 575 325
+obj_pipe_under 50 0
+obj_coin 50 150
+obj_coin 100 150

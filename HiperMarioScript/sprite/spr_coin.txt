@@ -1,0 +1,10 @@
+size
+18
+25
+image
+3
+coin_strip3.png
+mask
+rectangle
+18
+25

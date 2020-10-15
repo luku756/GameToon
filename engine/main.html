@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Toon Demo</title>
+    <link href="_shared/demo.css" rel="stylesheet" type="text/css">
+	<script src="_assets/libs/preloadjs-NEXT.min.js"></script>
+	<script src="_assets/libs/soundjs-NEXT.min.js"></script>
+	<script src="lib/easeljs-NEXT.combined.js"></script>
+    <script src="jquery.min.js" rel="script" type="application/javascript"></script>
+    <script src="input.js" rel="script" type="application/javascript"></script>
+    <script src="draw_function.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi_object.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi_move.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi_check.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi_sound.js" rel="script" type="application/javascript"></script>
+    <script src="actionApi_draw.js" rel="script" type="application/javascript"></script>
+    <script src="eventApi.js" rel="script" type="application/javascript"></script>
+    <script src="objectControll.js" rel="script" type="application/javascript"></script>
+    <script src="keyControll.js" rel="script" type="application/javascript"></script>
+    <script src="roomControll.js" rel="script" type="application/javascript"></script>
+    <script src="resources.js" rel="script" type="application/javascript"></script>
+    <script src="gameloop.js" rel="script" type="application/javascript"></script>
+    <script src="collisionControll.js" rel="script" type="application/javascript"></script>
+    <script src="inputscript.js" rel="script" type="application/javascript"></script>
+    <script>
+        var resourcepath = "_assets/art/";
+        //자원 배열
+        var spriteResource = new Array();       //스프라이트 맵(이름:객체)
+        var backgroundResource = new Array();   //백그라운드 맵(이름:객체)
+        var soundResource = new Array();        //사운드 맵(이름:객체)
+        var roomResource = new Array();         //룸 맵(이름:객체)
+        var objectResource = new Array();       //오브젝트 맵(이름:객체)
+        var roomOrder = new Array();            //룸 순서 배열(내용 : 룸 이름)
+        var imageMap = new Array();             //스프라이트, 백그라운드 등 이미지 맵 (id:이미지 객체)
+        var nowBackgrounds = new Array();       //현재 그려져있는 백그라운드들의 집합.
+        var timerHaverMap = new Array();        //타이머를 지닌 이들의 배열
+        var globalVariableMap = new Array();    //전역변수 맵 (변수명:변수값)
+        var stepEventBox = new Array();
+
+        var imageLoader;                        //이미지 프리로드 객체. 이미지를 미리 불러온다
+
+        var stage;
+
+        var nowRoom;    //현재 로드된 룸
+
+        var w, h, loader, manifest;
+        var sky, grant, ground, hill, hill2;
+
+        var loaingtextMap = new Array();
+
+        //초기화 함수, 자동으로 실행된다.
+        function init() {
+            //스크립트로부터 데이터 읽어오기
+            data_load();
+
+            var loadtext = new createjs.Text("", "bold " + 40 + "px monospace", "#000");
+            loadtext.x = 80;
+            loadtext.y = 100;
+            loadtext.text = "now loading...";
+
+            //데이터 보여주기, 잘 받아왔는지 확인하는 것
+//            console.log("classes");
+//            console.log(spriteResource);
+//            console.log(backgroundResource);
+//            console.log(soundResource);
+//            console.log(roomResource);
+//            console.log(objectResource);
+
+            stage = new createjs.Stage("mainCanvas");
+            stage.addChildAt(loadtext, 0);
+
+            //미리 사용할 모든 이미지들을 프리로드
+            imageLoader = new createjs.LoadQueue(false, resourcepath);
+            load_images();
+            load_sound();
+
+
+            stage.enableMouseOver(10);
+            stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
+            //for_test();
+            //            imageLoader.loadFile("daisy.png");
+            //            imageLoader.loadFile("sprite.png");
+
+            //사운드 테스트
+            soundtest();
+
+            //이미지 로드에 관한 이벤트 리스너
+            imageLoader.on("complete", loadcomplete, this);
+            imageLoader.on("error", loadcomplete, this);
+            imageLoader.on("fileload", loadfile, this);
+
+            //틱 리스너
+            createjs.Ticker.on("tick", tick);
+
+            //스테이지 마우스 리스너
+//            stage.addEventListener("stagemousedown", mouce_down);
+            //            stage.addEventListener("stagemouseup", mouce_up);
+
+            //키 누르기에 관한 리스너를 생성한다.
+            $(document).on('keydown', keydownListener);
+            $(document).on('keyup', keyupListener);
+
+            //            console.log("텍스트정보");
+            //            console.log(Text);
+            //            console.log(createjs.Text);
+
+        }
+        var soundsrc;
+        function soundtest() {
+
+            //            imageLoader.installPlugin(createjs.Sound);
+            //            //queue.addEventListener("complete", handleComplete);
+            //            imageLoader.loadFile({ id: "mySound", src: "audio/music.ogg" });
+            //            imageLoader.loadFile({ id: "mySound2", src: "audio/1year.mp3" });
+
+            //            // Create a single item to load.
+            //            var assetsPath = "_assets/audio/";
+            // //           src = assetsPath + "M-GameBG.ogg";  //이건 된다. 일단 소리가 나오는 건 맞는 듯
+            //            soundsrc = assetsPath + "1year.mp3";  //이건 된다. 일단 소리가 나오는 건 맞는 듯
+
+            //            //createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashAudioPlugin]);
+            //           //createjs.Sound.onLoadComplete = playSound;  // add a callback for when load is completed
+            //            createjs.Sound.addEventListener("fileload", play_Sound); // add an event listener for when load is completed
+            //            createjs.Sound.registerSound(soundsrc);  // register sound, which preloads by default
+
+        }
+
+        //        function play_Sound(event) {
+        //            console.log("loaded, plau")
+        //            console.log(event);
+        //            //soundInstance = createjs.Sound.play(event.src);  // start playing the sound we just loaded, storing the playing instance
+        //        }
+
+        function mouce_down(event) {
+
+
+            load_complete = !load_complete;
+
+            if (load_complete == false) {
+                var obj;
+                //화면에 충돌 마스크 범위가 보임
+                for (var i = 0; i < nowRoom.having_objects.length; i++) {
+                    obj = nowRoom.having_objects[i];
+                    //                console.log(obj);
+                    if (obj.spriteflag == true) {
+                        var rect
+                        if (obj.sprite.masktype == "circle") {
+
+                            rect = new createjs.Shape();
+                            rect.graphics.beginFill("#FFF").drawCircle(obj.sprite.width / 2, obj.sprite.height / 2, obj.sprite.maskradius * obj.scaleX);
+                            rect.x = obj.x;
+                            rect.y = obj.y;
+                            rect.alpha = 0.2;
+                            //                        console.log("obj = " + obj.name + " x : " + obj.x + " y : " + obj.y + " rect x = " + rect.x + " y = " + rect.y);
+                            //                        console.log(rect);
+                        }
+                        else {
+                            rect = new createjs.Shape();
+                            rect.graphics.beginFill("#FFF").drawRect(-2, -2, obj.sprite.maskwidth * obj.scaleX + 4, obj.sprite.maskheight * obj.scaleY +4);
+                            rect.x = obj.x ;
+                            rect.y = obj.y ;
+                            rect.alpha = 0.2;
+                            //                        console.log("obj = " + obj.name + " x : " + obj.x + " y : " + obj.y + " rect x = " + rect.x + " y = " + rect.y);
+                            //                        console.log(rect);
+                        }
+                        stage.addChild(rect);
+                    }
+                }
+
+                console.log("Pause Game!");
+                console.log("nowRoom = " + nowRoom.name);
+//                console.log(nowRoom.having_objects);
+
+            }
+            else
+                console.log("Resume Game!");
+
+            pauseSound(nowRoom.having_objects[0]);
+
+            stage.update();
+        }
+
+        //테스트를 위해 그리기 등을 해 본다
+        function for_test() {
+            //            console.log(objectResource["slime_base"]);
+            //            console.log(objectResource["slime2"]);
+            //            console.log(objectResource["slime3"]);
+            //            console.log(objectResource["slime1"]);
+            //            console.log(objectResource["warrior"]);
+            var obj1 = create_object(objectResource["slime_base"], 0, 0, 0, 0, 0, 0);
+            var obj2 = create_object(objectResource["slime2"], 0, 0, 0, 0, 0, 0);
+            var obj3 = create_object(objectResource["slime3"], 0, 0, 0, 0, 0, 0);
+            //            var obj4 = create_object(objectResource["slime1"], 0, 0, 0, 0, 0, 0);
+            var obj5 = create_object(objectResource["warrior"], 0, 0, 0, 0, 0, 0);
+
+            console.log(obj1);
+            console.log(check_targetObject("slime_base", obj1));
+            console.log(check_targetObject("slime_base", obj2));
+            console.log(check_targetObject("slime_base", obj3));
+            //            console.log(check_targetObject("slime_base", obj4));
+            console.log(check_targetObject("slime_base", obj5));
+
+            //            var image = new Image();
+            //            image.src = "_assets/art/daisy.png";
+
+            //            //bitmap = new createjs.Bitmap(image);
+
+            //            //테스트. 꽃 두개 그리기
+            //            bit = drawImage_preload(image, 2, 2, 10, 10);
+            //            drawImage_preload(image, 2, 2, 50, 50);
+
+            //            var hitArea = new createjs.Shape();
+            //            hitArea.graphics.beginFill("#FFF").drawRect(-image.width / 2, -image.height / 2, image.width, image.height);
+            //            hitArea.x = image.width / 2;
+            //            hitArea.y = image.height / 2;
+            //            //stage.addChild(hitArea);
+            //            bit.hitArea = hitArea;
+
+            //            //console.log(bit);
+            //            //console.log(hitArea);
+            //            bit.addEventListener("mousedown", function (evt) {
+            //                console.log("clicked");
+            //            });
+
+            //            bit.addEventListener("click", handleClick);
+            //            function handleClick(event) {
+            //                console.log("click");
+            //                // Click happened.
+            //            }
+            //            bit.addEventListener("moucedown", mouce_down);
+            //bit.addEventListener("mouceup", mouce_up);
+            //stage.addEventListener("click", mouce_click);
+
+            //            console.log("rom");
+            //            console.log(nowRoom);
+
+            //            //테스트. 원 그리기
+            //            circle = new createjs.Shape();
+            //            circle.graphics.beginFill("red").drawCircle(0, 0, 40);
+            //            //circle.y = 50;
+            //            stage.addChild(circle);
+            //            //            circle.on("click", function () {
+            //            //                alert("clicked");
+            //            //            });
+
+            //            //스프라이트 테스트
+            //            data = createSpriteData("sprite.png", 64, 96, 32, 48, 16);
+            //            grant = createSprite(data, 1, 1, 200, 200);
+            //            changeSprite(grant, "player", 4, 0, 3);
+
+            //            grant.xspeed = 0;
+            //            grant.yspeed = 2;
+            //            grant.xaccel = 0;
+            //            grant.yaccel = 0;
+            //            //            grant.on("mousedown", function (evt) {
+            //            //                console.log("moucedown");
+            //            //                console.log(evt.target);
+            //            //            });
+            //            //            grant.on("pressmove", function (evt) {
+            //            //                console.log("moucepress");
+            //            //            });
+            //            //            grant.on("pressup", function (evt) {
+            //            //                console.log("mouceup");
+            //            //            });
+            //            //            grant.on("mouseover", function (evt) {
+            //            //                console.log("mouseover");
+            //            //               // console.log(evt.currentTarget);
+            //            //            });
+            //            //            grant.on("mouseout", function (evt) {
+            //            //                console.log("mouseout");
+            //            //            });
+
+            //            //nowRoom.having_objects.push(grant);
+
+            //            //            create_object(objectResource['poo'], 100, 40);
+            //            //            create_object(objectResource['poo'], 200, 40);
+            //            //            create_object(objectResource['poo'], 300, 40);
+            //            //            create_object(objectResource['poo'], 400, 40);
+            //            //            create_object(objectResource['player'], 250, 60);
+
+            //            //            console.log("###poo");
+            //            //            console.log(objectResource['poo']);
+            //            //            nowRoom.having_objects[3].scaleX = 2;
+            //            //            console.log(nowRoom.having_objects[3]);
+            //            //console.log(nowRoom.having_objects);
+
+            //            // Stage will pass delta when it calls stage.update(arg)
+            //            // which will pass them to tick event handlers for us in time based animation.
+            //            // circle.on("tick", Tick);
+
+            //            var img = imageLoader.getResult("player.png");
+            //            drawImage_preload(img, 1, 1, 100, 100);
+            // console.log(img);
+
+
+            //            loader = new createjs.LoadQueue(false);
+            //            //컴플리트란 의미가 '로드 끝나면'이란 의미인 듯 - 맞네
+            //            loader.addEventListener("complete", handleComplete);
+            //            loader.loadManifest(manifest, true, "_assets/art/");
+            //            queue.loadFile("spritesheet_grant.png");
+            //            queue.loadFile("sky.png");
+            //            queue.loadFile("ground.png");
+            //            queue.loadFile("hill1.png");
+            //            queue.loadFile("hill2.png");
+
+            //            //충돌테스트
+            //            //테스트. 원 그리기
+            //            circle1 = new createjs.Shape();
+            //            circle1 = create_object(objectResource["poo"],100,100,0,0,0,0);
+            //            circle1.x = 100;
+            //            circle1.y = 200;
+            //            circle1.yaccel = 0;
+            //            
+            //            circle3 = new createjs.Shape();
+            //            circle3.graphics.beginFill("red").drawCircle(0, 0, 30);
+            //            circle3.x = 100 + circle1.sprite.width / 2;
+            //            circle3.y = 200 + circle1.sprite.height / 2;
+            ////            circle3.graphics.beginFill("red").drawRect(0, 0, 64,96);
+            ////            circle3.x = 100 ;
+            ////            circle3.y = 200;
+            //            circle3.alpha = 0.5;
+
+            //            circle2 = new createjs.Shape();
+            //            circle2 = create_object(objectResource["poo"], 100, 100, 0, 0, 0, 0);
+            //            circle2.x = 100;
+            //            circle2.y = 100;
+            //            circle2.yaccel = 0;
+
+            //            circle4 = new createjs.Shape();
+            //            circle4.graphics.beginFill("blue").drawCircle(0, 0, 30);
+            //            circle4.x = 100 + circle2.sprite.width / 2;
+            //            circle4.y = 100 + circle2.sprite.height / 2;
+            ////            circle4.graphics.beginFill("blue").drawRect(0, 0, 64,96);
+            ////            circle4.x = 100;
+            ////            circle4.y = 100;
+            //            circle4.alpha = 0.5;
+            //            stage.addChild(circle1);
+            //            stage.addChild(circle2);
+            //            stage.addChild(circle3);
+            //            stage.addChild(circle4);
+            //            console.log(circle1);
+
+        }
+        //        var circle1, circle2;
+        //        var circle3, circle4;
+
+
+
+
+        //        function mouce_up(event) {
+        //            //console.log("up");
+        //        }
+
+
+
+
+
+    </script>
+</head>
+<body onload="init();">
+    <canvas id="mainCanvas" width="500" height="500">
+		alternate content
+	</canvas>
+    <!--<button type="button" onclick="start()">start</button>-->
+</body>
+</html>

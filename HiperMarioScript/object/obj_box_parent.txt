@@ -1,0 +1,23 @@
+sprite
+usesprite
+spr_box
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_box
+event
+1
+collision obj_head
+7
+check_Variable new 1 1
+{ 4
+createObject_around obj_box_child 0 -50 -3 -3 0 0.2
+createObject_around obj_niddle 0 -5 0 0 0 0
+createObject_around obj_niddle 25 -5 0 0 0 0
+setVariable 1 new 0
+}

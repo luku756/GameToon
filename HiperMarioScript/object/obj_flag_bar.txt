@@ -1,0 +1,26 @@
+sprite
+usesprite
+spr_flag_bar
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+3
+object_creates
+1
+setVariable 1 new 1
+collision obj_player
+5
+check_Variable new 1 1
+{ 2
+changeAnotherObject obj_player obj_playerwin
+setVariable 1 new 0
+}
+timer 100
+1
+moveRoom rm_win

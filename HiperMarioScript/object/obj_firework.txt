@@ -1,0 +1,19 @@
+sprite
+nosprite
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+1
+object_creates
+5
+draw_sprite 0 0 0 spr_firework 0 10000 2
+draw_sprite 0 -200 150 spr_firework -1 10000 2
+draw_sprite 0 250 100 spr_firework -2 10000 2
+draw_sprite 0 200 200 spr_firework -3 10000 2
+draw_sprite 0 50 50 spr_firework -4 10000 2

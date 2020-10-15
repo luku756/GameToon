@@ -1,0 +1,17 @@
+sprite
+usesprite
+spr_cloud
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+1
+collision obj_player
+2
+changeAnotherObject obj_player obj_playerdie
+draw_sprite 0 -46 -71 spr_boom 0 40 10

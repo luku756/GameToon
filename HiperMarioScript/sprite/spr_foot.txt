@@ -1,0 +1,10 @@
+size
+35
+10
+image
+1
+foot.png
+mask
+rectangle
+35
+10

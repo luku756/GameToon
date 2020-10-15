@@ -1,0 +1,86 @@
+sprite
+usesprite
+spr_player
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_user
+event
+11
+object_creates
+6
+setAccel 0 0 0.5
+setGlobalVariable 1 jump 2
+createObject_around obj_foot 0 0 0 0 0 0
+createObject_around obj_head 0 0 0 0 0 0
+setVariable 1 see 1
+setVariable 0 draw 0
+key_down 32
+8
+check_GlobalVariable jump 0 1
+check_collisionObject obj_foot obj_land
+{ 4
+setSpeed 1 0 -14
+setGlobalVariable 1 jump 1
+setTimer 10 10
+playSound sd_jump 1
+}
+key_press 37
+1
+moveObject 0 -7 0
+key_press 39
+1
+moveObject 0 7 0
+always
+19
+check_Yspeed 8 2
+setYSpeed 1 8
+check_outRoom
+changeObject obj_playerdie
+check_GlobalVariable jump 0 2
+{ 4
+check_Variable see 0 1
+sprite_select spr_player 10
+check_Variable see 1 1
+sprite_select spr_player 4
+}
+check_Variable draw 10 1
+check_GlobalVariable jump 0 1
+{ 4
+check_Variable see 0 1
+sprite_select spr_player 6
+check_Variable see 1 1
+sprite_select spr_player 0
+}
+collision obj_monster
+3
+changeObject obj_playerdie
+moveObject 0 0 5
+setSpeed 1 0 5
+key_down 37
+3
+setVariable 1 see 0
+sprite_run spr_player 7 9 10
+setVariable 1 draw 1
+key_down 39
+3
+setVariable 1 see 1
+sprite_run spr_player 1 3 10
+setVariable 1 draw 1
+key_down 40
+2
+check_collisionObject obj_foot obj_pipe_drop
+moveRoom rm_under
+key_up 37
+2
+sprite_run spr_player 0 0 10
+setVariable 1 draw 0
+key_up 39
+2
+sprite_run spr_player 0 0 10
+setVariable 1 draw 0

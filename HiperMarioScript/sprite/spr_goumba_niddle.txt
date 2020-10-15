@@ -1,0 +1,10 @@
+size
+50
+50
+image
+6
+goumba_niddle.png
+mask
+rectangle
+50
+50

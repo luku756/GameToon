@@ -1,0 +1,10 @@
+size
+250
+100
+image
+1
+mt_big.png
+mask
+rectangle
+250
+100

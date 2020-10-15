@@ -1,0 +1,19 @@
+sprite
+usesprite
+spr_monster
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+1
+object_creates
+4
+sprite_rotate 1 180
+setYAccel 1 0.5
+setSpeed 1 0 3
+moveObject 0 25 5

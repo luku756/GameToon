@@ -1,0 +1,29 @@
+sprite
+usesprite
+spr_foot
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+4
+always
+1
+moveObjectAround 7.5 50 obj_player
+collision obj_monster
+3
+setObjectSpeed 1 obj_player 0 -10
+playSound sd_death_monster 1
+setTimer 10 10
+collision obj_land
+2
+check_GlobalVariable jump 1 2
+setGlobalVariable 1 jump 0
+timer 10
+2
+check_GlobalVariable jump 1 1
+setGlobalVariable 1 jump 2

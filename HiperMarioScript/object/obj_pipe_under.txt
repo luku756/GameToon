@@ -1,0 +1,17 @@
+sprite
+usesprite
+spr_pipe_long
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+1
+object_creates
+2
+createObject_around obj_player 25 100 0 0 0 0
+sprite_select spr_pipe_long 1

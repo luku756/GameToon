@@ -1,0 +1,10 @@
+size
+150
+50
+image
+1
+mt.png
+mask
+rectangle
+150
+50

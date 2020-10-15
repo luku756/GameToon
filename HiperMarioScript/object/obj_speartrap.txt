@@ -1,0 +1,25 @@
+sprite
+usesprite
+spr_stone
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+object_creates
+2
+sprite_select spr_stone 2
+setVariable 0 new 1
+collision obj_player
+6
+check_Variable new 1 1
+{ 2
+createObject_around obj_spear 0 -400 0 0 0 0
+createObject_around obj_spear 25 -400 0 0 0 0
+}
+setVariable 0 new 1

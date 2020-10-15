@@ -1,0 +1,26 @@
+sprite
+nosprite
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+3
+object_creates
+2
+setTimer 20 30
+stopAllSound
+timer 20
+2
+moveRoom rm_stage1
+playSound sd_mainbgm -1
+drawTime
+4
+draw_sprite 1 180 270 spr_player 0 0 0
+draw_Text 1 280 280 40 X
+draw_GlobalVariable 1 340 280 40 life
+draw_Text 1 160 200 40 WORLD 1 - 1

@@ -1,0 +1,10 @@
+size
+25
+100
+image
+1
+spear.png
+mask
+rectangle
+25
+100

@@ -1,0 +1,19 @@
+sprite
+usesprite
+spr_head
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+always
+1
+moveObjectAround 7.5 -5 obj_player
+collision obj_land
+1
+setObjectSpeed 1 obj_player 0 2

@@ -1,0 +1,18 @@
+sprite
+usesprite
+spr_flag_head
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+1
+collision obj_player
+3
+changeAnotherObject obj_player obj_playerdie
+draw_sprite 0 -65 -65 spr_boom 0 30 5
+playSound sd_boom 1

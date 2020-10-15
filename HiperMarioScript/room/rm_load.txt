@@ -1,0 +1,17 @@
+size
+600
+600
+view
+fix
+viewsize
+600
+600
+viewcoordinate
+0
+0
+background
+1
+bg_sky scale
+object
+1
+obj_loadsystem 10 10

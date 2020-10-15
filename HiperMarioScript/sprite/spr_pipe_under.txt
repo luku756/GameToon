@@ -1,0 +1,10 @@
+size
+0
+0
+image
+1
+nullimage.png
+mask
+rectangle
+0
+0

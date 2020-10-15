@@ -1,0 +1,38 @@
+sprite
+usesprite
+spr_goumba_niddle
+global
+false
+solid
+true
+depth
+0
+inherit
+noparent
+event
+4
+object_creates
+4
+setTimer 95 40
+setXSpeed 0 5
+setYSpeed 0 2
+setVariable 0 move 1
+timer 95
+5
+check_Variable move 1 1
+{ 2
+setTimer 96 40
+setXSpeed 1 -5
+}
+timer 96
+5
+check_Variable move 1 1
+{ 2
+setTimer 95 40
+setXSpeed 1 5
+}
+collision obj_foot
+3
+createObject_around obj_niddle_head 7 -30 0 0 0 0
+setSpeed 1 0 0
+setVariable 1 move 0

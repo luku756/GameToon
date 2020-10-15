@@ -1,0 +1,76 @@
+    <script>
+        var resourcepath = "engine/_assets/art/";
+        //자원 배열
+        var spriteResource = new Array();       //스프라이트 맵(이름:객체)
+        var backgroundResource = new Array();   //백그라운드 맵(이름:객체)
+        var soundResource = new Array();        //사운드 맵(이름:객체)
+        var roomResource = new Array();         //룸 맵(이름:객체)
+        var objectResource = new Array();       //오브젝트 맵(이름:객체)
+        var roomOrder = new Array();            //룸 순서 배열(내용 : 룸 이름)
+        var imageMap = new Array();             //스프라이트, 백그라운드 등 이미지 맵 (id:이미지 객체)
+        var nowBackgrounds = new Array();       //현재 그려져있는 백그라운드들의 집합.
+        var timerHaverMap = new Array();        //타이머를 지닌 이들의 배열
+        var globalVariableMap = new Array();    //전역변수 맵 (변수명:변수값)
+        var stepEventBox = new Array();
+
+        var imageLoader;                        //이미지 프리로드 객체. 이미지를 미리 불러온다
+
+        var stage;
+
+        var nowRoom;    //현재 로드된 룸
+
+        var w, h, loader, manifest;
+        var sky, grant, ground, hill, hill2;
+
+        var loaingtextMap = new Array();
+
+        //초기화 함수, 자동으로 실행된다.
+        function init() {
+            //스크립트로부터 데이터 읽어오기
+            data_load();
+
+            var loadtext = new createjs.Text("", "bold " + 40 + "px monospace", "#000");
+            loadtext.x = 80;
+            loadtext.y = 100;
+            loadtext.text = "now loading...";
+
+            stage = new createjs.Stage("mainCanvas");
+            stage.addChildAt(loadtext, 0);
+
+            //미리 사용할 모든 이미지들을 프리로드
+            imageLoader = new createjs.LoadQueue(false, resourcepath);
+            load_images();
+            load_sound();
+
+
+            stage.enableMouseOver(10);
+            stage.mouseMoveOutside = true; // keep tracking the mouse even when it leaves the canvas
+           
+
+            //이미지 로드에 관한 이벤트 리스너
+            imageLoader.on("complete", loadcomplete, this);
+            imageLoader.on("error", loadcomplete, this);
+            imageLoader.on("fileload", loadfile, this);
+
+            //틱 리스너
+            createjs.Ticker.on("tick", tick);
+
+            //키 누르기에 관한 리스너를 생성한다.
+            $(document).on('keydown', keydownListener);
+            $(document).on('keyup', keyupListener);
+
+        }
+        var soundsrc;
+     
+
+
+
+    </script>
+</head>
+<body onload="init();">
+    <canvas id="mainCanvas" width="500" height="500">
+		alternate content
+	</canvas>
+    <!--<button type="button" onclick="start()">start</button>-->
+</body>
+</html>

@@ -1,0 +1,10 @@
+size
+100
+150
+image
+2
+pipe_long_strip2.png
+mask
+rectangle
+100
+150

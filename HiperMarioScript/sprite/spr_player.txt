@@ -1,0 +1,10 @@
+size
+50
+50
+image
+12
+mario_strip13.png
+mask
+rectangle
+50
+50

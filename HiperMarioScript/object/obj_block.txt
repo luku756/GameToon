@@ -1,0 +1,34 @@
+sprite
+usesprite
+spr_block
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_land
+event
+3
+collision obj_head
+7
+check_Variable new 1 1
+{ 4
+goToObject 0 0 0 2
+moveObject 0 0 -20
+setVariable 1 new 0
+setTimer 71 20
+}
+object_creates
+1
+setVariable 0 new 1
+timer 71
+6
+setVariable 1 new 1
+check_collision obj_head
+{ 2
+setVariable 1 new 0
+setTimer 71 10
+}

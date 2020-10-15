@@ -1,0 +1,10 @@
+size
+400
+200
+image
+1
+title.png
+mask
+rectangle
+400
+200

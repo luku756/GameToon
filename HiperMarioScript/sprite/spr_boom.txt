@@ -1,0 +1,10 @@
+size
+192
+192
+image
+11
+boom.png
+mask
+rectangle
+192
+192

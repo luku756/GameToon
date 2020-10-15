@@ -1,0 +1,10 @@
+size
+25
+25
+image
+1
+flag_head.png
+mask
+rectangle
+25
+25

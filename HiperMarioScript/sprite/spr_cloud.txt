@@ -1,0 +1,10 @@
+size
+100
+72
+image
+1
+cloud_1.png
+mask
+rectangle
+100
+72

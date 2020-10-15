@@ -1,0 +1,43 @@
+sprite
+usesprite
+spr_player
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_user
+event
+3
+object_creates
+7
+removeObject obj_foot
+removeObject obj_head
+setSpeed 1 0 5
+setVariable 0 new 1
+sprite_select spr_player 5
+setGlobalVariable 1 flag 1
+playSound sd_flag 1
+collision obj_flag_stone
+9
+check_Variable new 1 1
+{ 5
+setVariable 1 new 2
+setSpeed 0 5 0
+stopAllSound
+playSound sd_win 1
+sprite_select spr_player 0
+}
+setGlobalVariable 1 flag 2
+always
+7
+check_coordinate 6575 6625 450 500
+check_Variable new 2 1
+{ 3
+setSpeed 1 0 0
+setVariable 1 new 3
+setTimer 101 5
+}

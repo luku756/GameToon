@@ -1,0 +1,31 @@
+sprite
+usesprite
+spr_stone
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+object_creates
+3
+sprite_select spr_box 2
+setVariable 0 new 1
+sprite_scale 7 1
+collision obj_player
+11
+check_Variable new 1 1
+{ 7
+createObject_around obj_box_hidden 0 -150 0 0 0 0
+createObject_around obj_box_hidden 50 -150 0 0 0 0
+createObject_around obj_box_hidden 100 -150 0 0 0 0
+createObject_around obj_box_hidden 150 -150 0 0 0 0
+createObject_around obj_box_hidden 200 -150 0 0 0 0
+createObject_around obj_box_hidden 250 -150 0 0 0 0
+createObject_around obj_box_hidden 300 -150 0 0 0 0
+}
+setVariable 0 new 1

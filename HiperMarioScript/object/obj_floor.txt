@@ -1,0 +1,14 @@
+sprite
+usesprite
+spr_floor
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_land
+event
+0

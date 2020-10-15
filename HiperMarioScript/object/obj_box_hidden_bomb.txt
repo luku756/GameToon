@@ -1,0 +1,17 @@
+sprite
+usesprite
+spr_box
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_box_boom
+event
+1
+object_creates
+1
+sprite_select spr_box 3

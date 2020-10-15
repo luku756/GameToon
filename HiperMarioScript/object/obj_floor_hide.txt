@@ -1,0 +1,20 @@
+sprite
+usesprite
+spr_stone
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_land
+event
+2
+object_creates
+1
+sprite_select spr_stone 1
+collision obj_foot
+1
+sprite_select spr_stone 0

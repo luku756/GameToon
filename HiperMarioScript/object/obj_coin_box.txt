@@ -1,0 +1,21 @@
+sprite
+usesprite
+spr_coin
+global
+false
+solid
+false
+depth
+0
+inherit
+parent
+obj_coin
+event
+2
+object_creates
+2
+setTimer 4 10
+setYSpeed 0 -10
+timer 4
+1
+deleteInstance_self

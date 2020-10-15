@@ -1,0 +1,19 @@
+sprite
+usesprite
+spr_spear
+global
+false
+solid
+true
+depth
+0
+inherit
+noparent
+event
+2
+object_creates
+1
+setYSpeed 0 30
+collision obj_player
+1
+changeAnotherObject obj_player obj_playerdie

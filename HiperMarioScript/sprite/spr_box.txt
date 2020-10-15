@@ -1,0 +1,10 @@
+size
+50
+50
+image
+3
+box_strip3.png
+mask
+rectangle
+50
+50

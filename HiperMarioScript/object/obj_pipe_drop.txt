@@ -1,0 +1,14 @@
+sprite
+usesprite
+spr_pipe_long
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_pipe
+event
+0

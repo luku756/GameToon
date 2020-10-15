@@ -1,0 +1,13 @@
+sprite
+usesprite
+spr_mt_big
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+0

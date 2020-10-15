@@ -1,0 +1,20 @@
+sprite
+usesprite
+spr_coin
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+collision obj_player
+2
+playSound sd_coin 1
+deleteInstance_self
+object_creates
+1
+sprite_run spr_coin 0 2 3

@@ -1,0 +1,10 @@
+size
+200
+200
+image
+2
+castle_strip2.png
+mask
+rectangle
+200
+200

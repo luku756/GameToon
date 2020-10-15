@@ -1,0 +1,10 @@
+size
+5
+300
+image
+1
+flag_bar.png
+mask
+rectangle
+5
+300

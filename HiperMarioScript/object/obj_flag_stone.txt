@@ -1,0 +1,18 @@
+sprite
+usesprite
+spr_stone
+global
+false
+solid
+true
+depth
+0
+inherit
+noparent
+event
+1
+object_creates
+3
+createObject_around obj_flag_bar 20 -300 0 0 0 0
+createObject_around obj_flag_head 10 -325 0 0 0 0
+createObject_around obj_flag -25 -300 0 0 0 0

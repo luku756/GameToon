@@ -1,0 +1,10 @@
+size
+100
+450
+image
+9
+fire_strip9.png
+mask
+rectangle
+100
+450

@@ -1,0 +1,14 @@
+sprite
+usesprite
+spr_floor_big
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_floor
+event
+0

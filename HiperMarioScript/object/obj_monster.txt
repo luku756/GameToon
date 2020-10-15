@@ -1,0 +1,26 @@
+sprite
+usesprite
+spr_monster
+global
+false
+solid
+true
+depth
+0
+inherit
+noparent
+event
+3
+object_creates
+2
+setSpeed 0 -3 10
+sprite_run spr_goumba 0 5 10
+collision obj_foot
+3
+moveObject 0 0 5
+setSpeed 1 0 5
+changeObject obj_monsterdie
+always
+2
+check_outRoom
+changeObject obj_monsterdie

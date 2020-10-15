@@ -1,0 +1,29 @@
+sprite
+usesprite
+spr_player
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+object_creates
+10
+removeObject obj_foot
+removeObject obj_head
+moveObject 0 0 -20
+setSpeed 1 0 5
+sprite_select spr_player 11
+stopSound sd_mainbgm
+check_Sound sd_death_mario
+stopSound sd_death_mario
+playSound sd_death_mario 1
+setTimer 0 55
+timer 0
+2
+setGlobalVariable 0 life -1
+moveRoom rm_load

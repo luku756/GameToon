@@ -1,0 +1,25 @@
+sprite
+nosprite
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+3
+key_down 32
+2
+setGlobalVariable 1 life 3
+moveRoom rm_load
+drawTime
+3
+draw_Text 0 70 100 40 Congratulation! YOU WIN!
+draw_Text 0 80 300 40 press Space to replay
+draw_sprite 1 250 200 spr_heart 0 10 10
+object_creates
+2
+stopAllSound
+playSound sd_happyending -1

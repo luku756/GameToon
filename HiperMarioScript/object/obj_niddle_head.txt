@@ -1,0 +1,17 @@
+sprite
+usesprite
+spr_niddle
+global
+false
+solid
+false
+depth
+0
+inherit
+parent
+obj_niddle
+event
+1
+object_creates
+1
+sprite_scale 1.5 1.5

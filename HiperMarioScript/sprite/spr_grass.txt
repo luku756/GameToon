@@ -1,0 +1,10 @@
+size
+100
+50
+image
+1
+grass.png
+mask
+rectangle
+100
+50

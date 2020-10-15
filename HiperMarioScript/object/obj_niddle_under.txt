@@ -1,0 +1,20 @@
+sprite
+usesprite
+spr_niddle
+global
+false
+solid
+true
+depth
+0
+inherit
+noparent
+event
+2
+collision obj_player
+2
+sprite_select spr_niddle 1
+changeAnotherObject obj_player obj_playerdie
+object_creates
+1
+sprite_select spr_niddle 2

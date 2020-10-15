@@ -1,0 +1,22 @@
+sprite
+usesprite
+spr_box
+global
+false
+solid
+true
+depth
+0
+inherit
+parent
+obj_box
+event
+1
+collision obj_head
+6
+check_Variable new 1 1
+{ 3
+playSound sd_boom 1
+draw_sprite 0 -60 -60 spr_boom 0 24 10
+changeAnotherObject obj_player obj_playerdie
+}

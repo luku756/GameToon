@@ -1,0 +1,22 @@
+sprite
+usesprite
+spr_castle
+global
+false
+solid
+false
+depth
+0
+inherit
+noparent
+event
+2
+timer 101
+4
+sprite_select spr_castle 1
+setTimer 100 80
+setTimer 102 20
+createObject_around obj_firework 50 -200 0 0 0 0
+timer 102
+1
+removeObject obj_playerwin

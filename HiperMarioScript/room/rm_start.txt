@@ -1,0 +1,20 @@
+size
+600
+600
+view
+fix
+viewsize
+600
+600
+viewcoordinate
+0
+0
+background
+1
+bg_sky scale
+object
+4
+obj_startsystem 100 100
+obj_floor_big 0 500
+obj_mt_big 50 400
+obj_grass 450 450

@@ -1,0 +1,10 @@
+size
+50
+50
+image
+1
+floor.png
+mask
+rectangle
+50
+50
